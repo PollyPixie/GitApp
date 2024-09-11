@@ -9,11 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private let helper = Helper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let person = Person()
-        print("Меня зовут \(person.fullName).")
+        let personOne = Person(name: "John", lastName: "Lee")
+        let personTwo = Person(name: "Eva", lastName: "Smith")
+        
+        helper.addPerson(personOne)
+        helper.addPerson(personTwo)
+        
+        for person in helper.listPeople() {
+            print("Мy name is \(person.fullName).")
+        }
     }
 }
 
