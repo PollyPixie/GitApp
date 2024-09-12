@@ -13,18 +13,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addPeople()
+        setupUser()
     }
         
-    private func addPeople() {
-        let personOne = Person(name: "John", lastName: "Lee")
-        let personTwo = Person(name: "Eva", lastName: "Smith")
+    private func setupUser() {
         
-        helper.addPerson(personOne)
-        helper.addPerson(personTwo)
+        let userOne = User(login: "john48", password: "g73jd9", name: "John", lastName: "Lee")
+        let userTwo = User(login: "eva@sm", password: "t65f98", name: "Eva", lastName: "Smith")
         
-        for person in helper.listPeople() {
-            print("Мy name is \(person.fullName).")
+        helper.addUser(userOne)
+        helper.addUser(userTwo)
+        
+        for user in helper.listUsers() {
+            print("Мy name is \(user.person.fullName).")
         }
     }
 }
