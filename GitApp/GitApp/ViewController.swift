@@ -13,7 +13,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addPeople()
+    }
         
+    private func addPeople() {
         let personOne = Person(name: "John", lastName: "Lee")
         let personTwo = Person(name: "Eva", lastName: "Smith")
         
