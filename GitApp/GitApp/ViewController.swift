@@ -8,8 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     private let helper = Helper()
+    private let userRepository = UserRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +19,9 @@ class ViewController: UIViewController {
     }
         
     private func setupUser() {
+        let users = userRepository.fetchUsers()
         
-        let userOne = User(login: "john48", password: "g73jd9", name: "John", lastName: "Lee")
-        let userTwo = User(login: "eva@sm", password: "t65f98", name: "Eva", lastName: "Smith")
-        
-        helper.addUser(userOne)
-        helper.addUser(userTwo)
+        helper.addUsers(users)
         
         for user in helper.listUsers() {
             print("Мy name is \(user.person.fullName).")
