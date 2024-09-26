@@ -12,23 +12,20 @@ class ViewController: UIViewController {
     private let userRepository = UserRepository()
     
     private let textLabel = UILabel()
-    private let textButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Show FullName", for: .normal)
-        button.backgroundColor = .green
-        button.frame = CGRect(x: 100, y: 150, width: 150, height: 50)
-        return button
-    }()
+    private let textButton = UIButton()
+    private let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .black
         view.alpha = 0.9
         setupUser()
         
         setupUILabel()
-        view.addSubview(textLabel)
-        view.addSubview(textButton)
+        setupButton()
+        setupStackView()
+        view.addSubview(stackView)
+        setupLayout()
     }
         
     private func setupUser() {
@@ -44,8 +41,34 @@ class ViewController: UIViewController {
     private func setupUILabel() {
         textLabel.text = helper.listUsers().randomElement()?.person.fullName
         textLabel.font = .systemFont(ofSize: 25, weight: .bold)
-        textLabel.textColor = .blue
-        textLabel.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+        textLabel.textColor = .white
+    }
+    
+    private func setupButton() {
+        textButton.setTitle("Show FullName", for: .normal)
+        textButton.setTitleColor(.black, for: .normal)
+        textButton.backgroundColor = .yellow
+    }
+    
+    private func setupStackView() {
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
+        stackView.spacing = 10
+        
+        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(textButton)
+    }
+    
+    private func setupLayout() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
     }
 }
 
