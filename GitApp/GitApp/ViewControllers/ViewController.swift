@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     private let helper = Helper()
     private let userRepository = UserRepository()
     
@@ -25,10 +26,13 @@ class ViewController: UIViewController {
         
         setupUILabel()
         setupStackView()
-        view.addSubview(stackView)
+        view.addSubviews(stackView)
         setupLayout()
     }
-        
+}
+
+// MARK: - Setup User
+extension ViewController {
     private func setupUser() {
         let users = userRepository.fetchUsers()
         
@@ -38,24 +42,31 @@ class ViewController: UIViewController {
             print("Мy name is \(user.person.fullName).")
         }
     }
-    
+}
+
+// MARK: - Setup View
+extension ViewController {
     private func setupUILabel() {
         textLabel.text = helper.listUsers().randomElement()?.person.fullName
         textLabel.font = .systemFont(ofSize: 25, weight: .bold)
         textLabel.textColor = .white
     }
-    
+}
+
+// MARK: - Setup Stack
+extension ViewController {
     private func setupStackView() {
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         stackView.spacing = 10
         
-        stackView.addArrangedSubview(textLabel)
-        stackView.addArrangedSubview(showButton)
-        stackView.addArrangedSubview(hideButton)
+       stackView.addArrangedSubviews(textLabel, showButton, hideButton)
     }
+}
     
+// MARK: - Setup Layout
+extension ViewController {
     private func setupLayout() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         

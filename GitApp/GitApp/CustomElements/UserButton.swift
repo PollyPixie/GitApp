@@ -9,7 +9,7 @@ import UIKit
 
 class UserButton: UIButton {
     private var shouldHaveShadow: Bool
-
+    
     init(title: String, backgroundColor: UIColor, shouldHaveShadow: Bool) {
         self.shouldHaveShadow = shouldHaveShadow
         super.init(frame: .zero)
@@ -19,18 +19,22 @@ class UserButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         let shadowPath = UIBezierPath(rect: bounds)
         layer.shadowPath = shadowPath.cgPath
     }
+}
+    
+    // MARK: - Setup Button
+extension UserButton {
     
     private func setupButton(title: String, backgroundColor: UIColor) {
         setTitle(title, for: .normal)
         setTitleColor(.black, for: .normal)
         self.backgroundColor = backgroundColor
-
+        
         if shouldHaveShadow {
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -39,3 +43,5 @@ class UserButton: UIButton {
         }
     }
 }
+
+

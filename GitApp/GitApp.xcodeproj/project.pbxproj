@@ -14,6 +14,8 @@
 		7305E2762C905D1600504CA2 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7305E2752C905D1600504CA2 /* Base */; };
 		7305E2802C90709F00504CA2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7305E27F2C90709F00504CA2 /* Person.swift */; };
 		73357FD42CA741CC00D0C337 /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73357FD32CA741CC00D0C337 /* UserButton.swift */; };
+		739E018A2CB19429008C8BB6 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739E01892CB19429008C8BB6 /* UIStackView+Extension.swift */; };
+		739E018C2CB194AB008C8BB6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739E018B2CB194AB008C8BB6 /* UIView+Extension.swift */; };
 		73B086992C92131E0056B064 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B086982C92131E0056B064 /* Helper.swift */; };
 		73B0869B2C9B1D060056B064 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0869A2C9B1D060056B064 /* UserRepository.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		7305E2772C905D1600504CA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7305E27F2C90709F00504CA2 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		73357FD32CA741CC00D0C337 /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
+		739E01892CB19429008C8BB6 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		739E018B2CB194AB008C8BB6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		73B086982C92131E0056B064 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		73B0869A2C9B1D060056B064 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,16 +68,66 @@
 			children = (
 				7305E2692C905D1400504CA2 /* AppDelegate.swift */,
 				7305E26B2C905D1400504CA2 /* SceneDelegate.swift */,
-				7305E26D2C905D1400504CA2 /* ViewController.swift */,
-				73B0869A2C9B1D060056B064 /* UserRepository.swift */,
-				73357FD32CA741CC00D0C337 /* UserButton.swift */,
-				7305E27F2C90709F00504CA2 /* Person.swift */,
-				73B086982C92131E0056B064 /* Helper.swift */,
-				7305E2722C905D1600504CA2 /* Assets.xcassets */,
-				7305E2742C905D1600504CA2 /* LaunchScreen.storyboard */,
+				739E018D2CB195BC008C8BB6 /* ViewControllers */,
+				739E01912CB196EB008C8BB6 /* Models */,
+				739E018F2CB19614008C8BB6 /* CustomElements */,
+				739E01922CB1970B008C8BB6 /* Services */,
+				739E01902CB19638008C8BB6 /* Resources */,
+				739E018E2CB195E0008C8BB6 /* Extensions */,
 				7305E2772C905D1600504CA2 /* Info.plist */,
 			);
 			path = GitApp;
+			sourceTree = "<group>";
+		};
+		739E018D2CB195BC008C8BB6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7305E26D2C905D1400504CA2 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		739E018E2CB195E0008C8BB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				739E01892CB19429008C8BB6 /* UIStackView+Extension.swift */,
+				739E018B2CB194AB008C8BB6 /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		739E018F2CB19614008C8BB6 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				73357FD32CA741CC00D0C337 /* UserButton.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		739E01902CB19638008C8BB6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7305E2722C905D1600504CA2 /* Assets.xcassets */,
+				7305E2742C905D1600504CA2 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		739E01912CB196EB008C8BB6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73B0869A2C9B1D060056B064 /* UserRepository.swift */,
+				7305E27F2C90709F00504CA2 /* Person.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		739E01922CB1970B008C8BB6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				73B086982C92131E0056B064 /* Helper.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +203,10 @@
 				7305E26E2C905D1400504CA2 /* ViewController.swift in Sources */,
 				7305E26A2C905D1400504CA2 /* AppDelegate.swift in Sources */,
 				73B0869B2C9B1D060056B064 /* UserRepository.swift in Sources */,
+				739E018C2CB194AB008C8BB6 /* UIView+Extension.swift in Sources */,
 				73B086992C92131E0056B064 /* Helper.swift in Sources */,
 				7305E2802C90709F00504CA2 /* Person.swift in Sources */,
+				739E018A2CB19429008C8BB6 /* UIStackView+Extension.swift in Sources */,
 				73357FD42CA741CC00D0C337 /* UserButton.swift in Sources */,
 				7305E26C2C905D1400504CA2 /* SceneDelegate.swift in Sources */,
 			);
