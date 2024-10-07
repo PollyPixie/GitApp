@@ -16,6 +16,7 @@ class UserButton: UIButton {
         setupButton(title: title, backgroundColor: backgroundColor)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,14 +35,25 @@ extension UserButton {
         setTitle(title, for: .normal)
         setTitleColor(.black, for: .normal)
         self.backgroundColor = backgroundColor
+        layer.cornerRadius = Constants.cornerRadius
+        
+        heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         if shouldHaveShadow {
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowOffset = CGSize(width: 5, height: 5)
-            layer.shadowOpacity = 0.7
-            layer.shadowRadius = 10
+            layer.shadowOpacity = Constants.shadowOpacity
+            layer.shadowRadius = Constants.shadowRadius
         }
     }
 }
 
+// MARK: - Constants
+extension UserButton {
+    private enum Constants {
+        static let cornerRadius: CGFloat = 10
+        static let shadowOpacity: Float = 0.7
+        static let shadowRadius: CGFloat = 10
+    }
+}
 

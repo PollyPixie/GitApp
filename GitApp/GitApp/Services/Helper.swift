@@ -21,4 +21,8 @@ class Helper {
     func listUsers() -> [User] {
         users
     }
+    
+    func getRandomName() -> String {
+        users.randomElement()?.person.fullName ?? "No Name"
+    }
 }

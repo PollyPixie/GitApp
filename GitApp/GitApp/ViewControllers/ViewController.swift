@@ -22,12 +22,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         view.alpha = 0.9
+        
         setupUser()
         
         setupUILabel()
         setupStackView()
         view.addSubviews(stackView)
+        addAction()
+        
         setupLayout()
+    }
+    
+    @objc
+    private func showButtonTapped() {
+        textLabel.text = helper.getRandomName()
     }
 }
 
@@ -45,26 +53,36 @@ extension ViewController {
 }
 
 // MARK: - Setup View
-extension ViewController {
-    private func setupUILabel() {
+private extension ViewController {
+    func addAction() {
+        showButton.addTarget(
+            self,
+            action: #selector(showButtonTapped),
+            for: .touchUpInside
+        )
+        
+        let action = UIAction { _ in
+            self.textLabel.text = ""
+        }
+        hideButton.addAction(action, for: .touchUpInside)
+    }
+    
+    func setupUILabel() {
         textLabel.text = helper.listUsers().randomElement()?.person.fullName
         textLabel.font = .systemFont(ofSize: 25, weight: .bold)
         textLabel.textColor = .white
     }
-}
-
-// MARK: - Setup Stack
-extension ViewController {
-    private func setupStackView() {
+    
+    func setupStackView() {
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
         stackView.alignment = .center
         stackView.spacing = 10
         
-       stackView.addArrangedSubviews(textLabel, showButton, hideButton)
+        stackView.addArrangedSubviews(textLabel, showButton, hideButton)
     }
 }
-    
+
 // MARK: - Setup Layout
 extension ViewController {
     private func setupLayout() {
